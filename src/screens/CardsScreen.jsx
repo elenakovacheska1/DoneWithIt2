@@ -12,7 +12,7 @@ const CardsScreen = () => {
 					<Card
 						imageUri={item.imageUri}
 						title={item.title}
-						price={item.price}
+						subTitle={`$${item.price}`}
 					/>
 				)}
 				keyExtractor={(item) => item.id}

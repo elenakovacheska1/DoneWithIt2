@@ -1,27 +1,38 @@
-import { Image, StyleSheet, Text, View, Platform } from "react-native";
+import { Image, StyleSheet, View, Platform } from "react-native";
 import colors from "../../config/colors";
+import AppText from "./elements/AppText";
 
-const Card = ({ imageUri, title, price }) => {
+const Card = ({
+	imageUri,
+	title,
+	subTitle,
+	cardStyle = {},
+	imageStyle = {},
+	titleStyle = {},
+	subTitleStyle = {},
+}) => {
 	return (
 		<View
 			style={
 				Platform.OS === "android"
-					? styles.container
-					: [styles.container, styles.shadowProp]
+					? [styles.container, cardStyle]
+					: [styles.container, styles.shadowProp, cardStyle]
 			}
 		>
 			<Image
-				style={styles.image}
+				style={[styles.image, imageStyle]}
 				source={{
 					uri: imageUri
 						? imageUri
 						: "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg",
 				}}
 			/>
-			<Text style={styles.title}>{title ? title : "Title not found!"}</Text>
-			<Text style={styles.price}>
-				{price ? `$${parseInt(price)}` : "Price not found!"}
-			</Text>
+			<AppText style={[styles.title, titleStyle]}>
+				{title ? title : "Title not found!"}
+			</AppText>
+			<AppText style={[styles.subTitle, subTitleStyle]}>
+				{subTitle ? subTitle : "Subtitle not found!"}
+			</AppText>
 		</View>
 	);
 };
@@ -32,6 +43,7 @@ const styles = StyleSheet.create({
 		width: "100%",
 		borderRadius: 30,
 		borderColor: colors.gray,
+		borderWidth: 1,
 		elevation: 10,
 	},
 	image: {
@@ -47,10 +59,10 @@ const styles = StyleSheet.create({
 		paddingBottom: 10,
 		fontSize: 15,
 	},
-	price: {
+	subTitle: {
 		paddingLeft: 20,
 		paddingBottom: 40,
-		color: colors.teal,
+		color: colors.secondary,
 		fontSize: 15,
 	},
 	shadowProp: {
