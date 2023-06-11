@@ -1,28 +1,12 @@
 import Constants from "expo-constants";
-import {
-	Dimensions,
-	StyleSheet,
-	Text,
-	TouchableWithoutFeedback,
-	TouchableOpacity,
-	TouchableHighlight,
-	TouchableNativeFeedback,
-	Image,
-	View,
-	Button,
-	Alert,
-	Platform,
-	StatusBar,
-} from "react-native";
+import { StyleSheet, View, Platform, StatusBar } from "react-native";
 
-import CardsScreen from "./src/screens/CardsScreen";
+import CardsScreen from "./src/screens/CardsScreen.jsx";
 
 export default function App() {
 	return (
 		<View>
 			<StatusBar />
-			{/* <MainView />
-			<ProductView /> */}
 			<CardsScreen />
 		</View>
 	);
@@ -30,7 +14,6 @@ export default function App() {
 
 const customStyles = StyleSheet.create({
 	container: {
-		// backgroundColor: Platform.OS === "android" ? "orange" : "pink",
 		paddingTop:
 			Platform.OS === "android"
 				? StatusBar.currentHeight

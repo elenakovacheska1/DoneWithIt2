@@ -1,7 +1,7 @@
 import { StyleSheet, View, FlatList } from "react-native";
-import Card from "../components/Card";
-import DATA from "../data/cardsData";
-import ListItemSeparator from "../components/elements/ListItemSeparator";
+import Card from "../components/Card.jsx";
+import DATA from "../data/cardsData.js";
+import ListItemSeparator from "../components/elements/ListItemSeparator.jsx";
 
 const CardsScreen = () => {
 	return (
