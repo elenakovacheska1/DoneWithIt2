@@ -1,9 +1,15 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, Platform } from "react-native";
 import colors from "../../config/colors";
 
 const Card = ({ imageUri, title, price }) => {
 	return (
-		<View style={styles.container}>
+		<View
+			style={
+				Platform.OS === "android"
+					? styles.container
+					: [styles.container, styles.shadowProp]
+			}
+		>
 			<Image
 				style={styles.image}
 				source={{
@@ -25,6 +31,7 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.gray,
 		width: "100%",
 		borderRadius: 30,
+		borderColor: colors.gray,
 		elevation: 10,
 	},
 	image: {
@@ -32,7 +39,7 @@ const styles = StyleSheet.create({
 		height: 250,
 		borderTopLeftRadius: 30,
 		borderTopRightRadius: 30,
-		resizeMode: "contain",
+		resizeMode: "cover",
 	},
 	title: {
 		fontWeight: "bold",
@@ -45,6 +52,12 @@ const styles = StyleSheet.create({
 		paddingBottom: 40,
 		color: colors.teal,
 		fontSize: 15,
+	},
+	shadowProp: {
+		shadowColor: "#171717",
+		shadowOffset: { width: -2, height: 4 },
+		shadowOpacity: 0.2,
+		shadowRadius: 3,
 	},
 });
 

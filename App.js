@@ -1,4 +1,4 @@
-// import { StatusBar } from "expo-status-bar";
+import Constants from "expo-constants";
 import {
 	Dimensions,
 	StyleSheet,
@@ -31,7 +31,10 @@ export default function App() {
 const customStyles = StyleSheet.create({
 	container: {
 		// backgroundColor: Platform.OS === "android" ? "orange" : "pink",
-		paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+		paddingTop:
+			Platform.OS === "android"
+				? StatusBar.currentHeight
+				: Constants.statusBarHeight,
 	},
 });
 
