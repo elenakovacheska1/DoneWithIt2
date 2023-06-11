@@ -15,16 +15,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.elekov.DoneWithIt2"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.elekov.DoneWithIt2"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "description": "A marketplace for selling used goods",
+    "extra": {
+      "eas": {
+        "projectId": "e86d9ffc-dd4a-48c0-a474-3ec4f62c0c4b"
+      }
     }
   }
 }
