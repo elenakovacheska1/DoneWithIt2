@@ -1,6 +1,7 @@
 import { Image, StyleSheet, View, Platform } from "react-native";
-import colors from "../../config/colors";
-import AppText from "./elements/AppText";
+import colors from "../../../config/colors";
+import AppText from "./AppText";
+import imagesData from "../../data/placeholderImagesData";
 
 const Card = ({
 	imageUri,
@@ -22,9 +23,7 @@ const Card = ({
 			<Image
 				style={[styles.image, imageStyle]}
 				source={{
-					uri: imageUri
-						? imageUri
-						: "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg",
+					uri: imageUri ? imageUri : imagesData.notFoundImageUri,
 				}}
 			/>
 			<AppText style={[styles.title, titleStyle]}>

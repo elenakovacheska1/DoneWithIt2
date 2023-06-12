@@ -1,17 +1,26 @@
 import { View, StyleSheet, StatusBar, Image } from "react-native";
-
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import placeholderImagesData from "../data/placeholderImagesData";
 import colors from "../../config/colors";
 
-const ProductView = () => {
+const ProductScreen = () => {
 	return (
 		<View style={styles.containerMain}>
 			<StatusBar backgroundColor="black" />
 			<View style={styles.containerSquares}>
-				<View style={styles.redSquare}></View>
-				<View style={styles.blueSquare}></View>
+				<View style={styles.closeIcon}>
+					<MaterialCommunityIcons name="close" color="white" size={35} />
+				</View>
+				<View style={styles.deleteIcon}>
+					<MaterialCommunityIcons
+						name="trash-can-outline"
+						color="white"
+						size={35}
+					/>
+				</View>
 			</View>
 			<Image
-				source={require("../../assets/chair.webp")}
+				source={{ uri: placeholderImagesData.notFoundImageUri }}
 				style={styles.imageMain}
 			></Image>
 		</View>
@@ -20,33 +29,26 @@ const ProductView = () => {
 
 const styles = StyleSheet.create({
 	containerMain: {
-		flex: 1,
-		backgroundColor: "black",
+		backgroundColor: colors.black,
+		height: "100%",
 	},
 	containerSquares: {
-		flex: 0.5,
 		flexDirection: "row",
 		justifyContent: "space-between",
+		alignItems: "center",
 		width: "100%",
-		height: "15%",
+		height: 80,
 		backgroundColor: colors.black,
 		paddingHorizontal: 10,
+		marginBottom: 40,
 	},
 	imageMain: {
 		width: "100%",
-		height: "70%",
+		height: 500,
 		resizeMode: "cover",
 	},
-	redSquare: {
-		width: 50,
-		height: 50,
-		backgroundColor: colors.primary,
-	},
-	blueSquare: {
-		width: 50,
-		height: 50,
-		backgroundColor: colors.secondary,
-	},
+	closeIcon: {},
+	deleteIcon: {},
 });
 
-export default ProductView;
+export default ProductScreen;
